@@ -63,6 +63,6 @@ void ArithM(int[,] array)
         }
         result = SumCol / array.GetLength(0);
         Console.WriteLine($"Среднее арифметическре {j}-го столбца: {result:f1}");
-        }
+    }
 }
 
