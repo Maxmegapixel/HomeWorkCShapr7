@@ -1,14 +1,11 @@
 ﻿// Урок 7. Двумерные массивы
-// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и 
-// возвращает значение этого элемента или же указание, что такого элемента нет.
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
 // Например, задан массив:
 // 1 4 7 2
 // 5 9 2 3
 // 8 4 2 4
-
-// позиция i = 4, j = 2 -> такой позиции нет
-// позиция i = 1, j = 0 -> 5
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
 
 
 PrintMess("Введите количество строк массива: ");
@@ -17,7 +14,7 @@ PrintMess("Введите количество столбцов массива: 
 int columns = GetInput();
 int[,] array = GetArray(rows, columns, 0, 10);
 PrintArray(array);
-FindElement(array);
+ArithM(array);
 
 int GetInput()
 {
@@ -53,13 +50,19 @@ void PrintArray(int[,] array)
     }
 }
 
-void FindElement(int[,] array)
+void ArithM(int[,] array)
 {
-    PrintMess("Введите номер строки искомого элемента: ");
-    int i = GetInput();
-    PrintMess("Введите номер столбца искомого элемента: ");
-    int j = GetInput();
-    if (i >= array.GetLength(0) || i < 0 || j < 0 || j >= array.GetLength(1)) PrintMess("такого элемента нет!");
-    else Console.WriteLine($"Значение элемента: {array[i, j]}");
+    double result;
+    double SumCol;
+    for (int j = 0; j < array.GetLength(1); j++)
+    {
+        SumCol = 0;
+        for (int i = 0; i < array.GetLength(0); i++)
+        {
+            SumCol += array [i, j];
+        }
+        result = SumCol / array.GetLength(0);
+        Console.WriteLine($"Среднее арифметическре {j}-го столбца: {result:f1}");
+        }
 }
 
