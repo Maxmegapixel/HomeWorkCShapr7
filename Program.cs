@@ -6,22 +6,44 @@
 // 1 -3,3 8 -9,9
 // 8 7,8 -7,1 9
 
-// Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, и возвращает значение этого элемента или же указание, что такого элемента нет.
 
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
+PrintInput("Введите количество строк массива: ");
+int rows = GetInput();
+PrintInput("Введите количество столбцов массива: ");
+int columns = GetInput();
+PrintArray(GetArray(rows, columns, -10, 10));
 
-// позиция i = 4, j = 2 -> такой позиции нет
-// позиция i = 1, j = 0 -> 5
+int GetInput()
+{
+    return  int.Parse(Console.ReadLine()!);
+}
+void PrintInput(string a)
+{
+    Console.WriteLine(a);
+}
 
-// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+double[,] GetArray(int m, int n, int minValue, int maxValue)
+{
+    double[,] result = new double[m, n];
+    Random rand = new Random();
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            result[i, j] = rand.NextDouble() * rand.Next(minValue, maxValue + 1);
+        }
+    }
+    return result;
+}
 
-// Например, задан массив:
-// 1 4 7 2
-// 5 9 2 3
-// 8 4 2 4
-// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
-
-
+void PrintArray(double[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write($"{array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+}
