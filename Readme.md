@@ -30,3 +30,5 @@ m = 3, n = 4.
 Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.  
 
 ### [Решение задачи 52](https://github.com/Maxmegapixel/HomeWorkCShapr7/blob/aa8e76365831c142e5bad72e32c1ef84dc04bb18/Program.cs) ==> git checkout aa8e
+
+:white_check_mark:
